@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071b2a">
+  <meta name="description" content="H2O ClearX detects optical scattering in water samples and turns readings into clear, traceable insights.">
+  <title>H2O ClearX | Microplastic monitoring</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="H2O ClearX home">
+      <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span>H2O <b>ClearX</b></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#features">Features</a>
+      <a href="#technology">Technology</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="button button-quiet login-trigger" type="button" data-open-login>Log in <span aria-hidden="true">↗</span></button>
+  </header>
+
+  <main>
+    <section class="hero section-wrap" id="home" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot"></span> FIELD-READY WATER INSIGHT</p>
+        <h1 id="hero-title">See what the<br><span>water carries.</span></h1>
+        <p class="hero-description">A compact optical monitor that turns invisible particle scattering into a reading you can act on.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#dashboard">Open live dashboard <span aria-hidden="true">↘</span></a>
+          <a class="text-link" href="#technology">Explore the sensor <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="hero-facts" aria-label="System highlights">
+          <div><strong>500<span>ms</span></strong><small>Reading interval</small></div>
+          <div><strong>12<span>bit</span></strong><small>ADC resolution</small></div>
+          <div><strong>60</strong><small>Live chart points</small></div>
+        </div>
+      </div>
+      <div class="instrument-scene" role="img" aria-label="Optical sensor sending a red beam through a water sample toward a photodetector">
+        <div class="scene-topline"><span>OPTICAL CELL / 01</span><span class="scene-live"><i></i> SYSTEM READY</span></div>
+        <div class="scene-grid"></div>
+        <div class="laser-source"><span></span><small>EMITTER</small></div>
+        <div class="beam beam-main"></div>
+        <div class="beam beam-scatter scatter-one"></div>
+        <div class="beam beam-scatter scatter-two"></div>
+        <div class="sample-tube"><div class="sample-water"></div><div class="sample-glint"></div><span class="particle particle-one"></span><span class="particle particle-two"></span><span class="particle particle-three"></span></div>
+        <div class="detector"><span></span><small>PHOTODIODE</small></div>
+        <div class="scene-readout"><small>TRANSMITTED SIGNAL</small><strong>3.18 <span>V</span></strong><i><b></b></i><span class="readout-note">BASELINE · SAMPLE CLEAR</span></div>
+        <div class="scene-axis"><span>LIGHT IN</span><span>PARTICLE SCATTER</span><span>LIGHT OUT</span></div>
+      </div>
+      <div class="hero-bottomline"><span>PORTABLE BY DESIGN. PRECISE BY PRINCIPLE.</span><span>01 — 05</span></div>
+    </section>
+
+    <section class="ticker" aria-label="Measurement principle">
+      <div class="ticker-track"><span>LIGHT TRANSMISSION</span><b>×</b><span>SCATTERING SIGNAL</span><b>×</b><span>FIELD DATA</span><b>×</b><span>LIGHT TRANSMISSION</span><b>×</b><span>SCATTERING SIGNAL</span><b>×</b><span>FIELD DATA</span></div>
+    </section>
+
+    <section class="content-section section-wrap" id="features" aria-labelledby="features-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">01 / BUILT FOR THE SAMPLE</p><h2 id="features-title">Small signal.<br><span>Clear next steps.</span></h2></div>
+        <p>Turn a simple optical measurement into a repeatable way to compare samples, track change, and keep a usable field record.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-item"><span class="feature-index">A / 01</span><div class="feature-icon icon-beam" aria-hidden="true"><i></i></div><h3>Optical, not guesswork</h3><p>Compare transmitted light against a distilled-water baseline. More scattering means less light reaches the detector.</p></article>
+        <article class="feature-item"><span class="feature-index">B / 02</span><div class="feature-icon icon-wave" aria-hidden="true"><i></i><i></i><i></i></div><h3>Readings in real time</h3><p>Stream voltage, interpreted level, and relative concentration over BLE at a steady half-second cadence.</p></article>
+        <article class="feature-item"><span class="feature-index">C / 03</span><div class="feature-icon icon-record" aria-hidden="true"><i></i><i></i><i></i></div><h3>Records that travel</h3><p>Save readings in your browser, annotate sampling context, and export a portable CSV when fieldwork is done.</p></article>
+      </div>
+    </section>
+
+    <section class="technology-section" id="technology" aria-labelledby="technology-title">
+      <div class="section-wrap technology-layout">
+        <div class="technology-copy"><p class="eyebrow">02 / THE MEASUREMENT</p><h2 id="technology-title">A beam through<br>the <span>unknown.</span></h2><p>A red light source crosses the sample tube. Clear water transmits more light; suspended particles scatter it away from the photodiode. The ESP32 averages ten ADC samples, classifies the voltage, and estimates a relative concentration against your calibrated baseline.</p><a class="text-link" href="#dashboard">View the measurement stream <span aria-hidden="true">→</span></a></div>
+        <div class="process-rail" aria-label="Measurement process">
+          <div class="process-step"><span>01</span><b>Illuminate</b><small>Red LED / laser</small></div><div class="process-connector"></div>
+          <div class="process-step"><span>02</span><b>Scatter</b><small>Particles redirect light</small></div><div class="process-connector"></div>
+          <div class="process-step"><span>03</span><b>Measure</b><small>GPIO34 / 12-bit ADC</small></div><div class="process-connector"></div>
+          <div class="process-step"><span>04</span><b>Compare</b><small>Calibrated baseline</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard-section section-wrap" id="dashboard" aria-labelledby="dashboard-title">
+      <div class="dashboard-heading">
+        <div><p class="eyebrow">03 / LIVE MONITOR</p><h2 id="dashboard-title">Sample dashboard</h2><p class="section-intro">Connect your sensor or explore the interface with a simulated feed.</p></div>
+        <div class="connection-actions"><button class="button button-primary" id="connect-button" type="button"><span class="button-spark" aria-hidden="true"></span>Connect device</button><label class="toggle-control" for="demo-toggle"><input id="demo-toggle" type="checkbox"><span class="toggle-track" aria-hidden="true"></span><span>Demo mode</span></label></div>
+      </div>
+      <div class="connection-strip" id="connection-status" role="status" aria-live="polite"><span class="status-indicator" aria-hidden="true"></span><span id="connection-message">No device connected. Start demo mode or connect your ClearX sensor.</span><span class="connection-protocol">BLUETOOTH LE</span></div>
+
+      <div class="metric-grid" aria-label="Latest sample readings">
+        <article class="metric-card"><div class="metric-top"><span>TRANSMITTED VOLTAGE</span><span class="metric-symbol symbol-voltage" aria-hidden="true">V</span></div><div class="metric-value"><strong id="voltage-value">--.--</strong><span>V</span></div><p>Photodiode · GPIO34</p><div class="metric-scale"><i id="voltage-scale"></i></div></article>
+        <article class="metric-card metric-level-card"><div class="metric-top"><span>SCATTER LEVEL</span><span class="metric-symbol symbol-level" aria-hidden="true">↘</span></div><div class="metric-value"><strong class="level-value" id="level-value">Waiting</strong></div><p id="level-description">Connect a sensor to begin</p><div class="level-rule"><i id="level-indicator"></i></div></article>
+        <article class="metric-card"><div class="metric-top"><span>RELATIVE CONCENTRATION</span><span class="metric-symbol symbol-conc" aria-hidden="true">%</span></div><div class="metric-value"><strong id="concentration-value">--.-</strong><span>idx</span></div><p>Calibrated signal estimate</p><div class="concentration-scale"><i id="concentration-scale"></i></div></article>
+      </div>
+
+      <div class="data-panel">
+        <div class="chart-heading"><div><span class="panel-kicker">SIGNAL HISTORY</span><h3>Concentration over time</h3></div><div class="chart-meta"><span class="chart-legend"><i></i>Relative index</span><span class="demo-badge" id="demo-badge" hidden>DEMO DATA</span></div></div>
+        <div class="chart-frame"><canvas id="concentration-chart" role="img" aria-label="Line chart showing relative concentration over time"></canvas><p class="chart-empty" id="chart-empty">Readings will appear here as your sample is measured.</p></div>
+        <div class="chart-footer"><span><i class="stream-pulse"></i> <span id="chart-count">0 readings</span></span><span>ROLLING WINDOW · LAST 60</span></div>
+      </div>
+
+      <div class="records-panel">
+        <div class="sample-context">
+          <div class="context-title"><span class="panel-kicker">CAPTURE CONTEXT</span><strong>Tag incoming readings</strong><small>Operator-supplied metadata · not sensor-measured</small></div>
+          <label>Location<select id="sample-location"><option value="">Unspecified</option><option>North basin</option><option>South basin</option><option>Field station</option><option>Lab bench</option><option>Custom</option></select></label>
+          <label>Size from (µm)<input id="sample-size-min" type="number" min="0" step="1" placeholder="Not set"></label>
+          <label>Size to (µm)<input id="sample-size-max" type="number" min="0" step="1" placeholder="Not set"></label>
+        </div>
+        <div class="records-heading"><div><span class="panel-kicker">FIELD LOG</span><h3>Saved readings <span id="saved-count">0</span></h3></div><div class="record-actions"><button class="button button-outline" id="export-button" type="button"><span aria-hidden="true">↓</span> Export CSV</button><button class="button button-danger" id="clear-button" type="button"><span aria-hidden="true">×</span> Clear data</button></div></div>
+        <form class="filter-row" id="filter-form" aria-label="Filter saved readings">
+          <label>Location<select id="filter-location"><option value="">All locations</option><option>North basin</option><option>South basin</option><option>Field station</option><option>Lab bench</option><option>Custom</option></select></label>
+          <label>Size from (µm)<input id="filter-size-min" type="number" min="0" step="1" placeholder="Any"></label>
+          <label>Size to (µm)<input id="filter-size-max" type="number" min="0" step="1" placeholder="Any"></label>
+          <label>From date<input id="filter-date-from" type="date"></label>
+          <label>To date<input id="filter-date-to" type="date"></label>
+          <button class="filter-reset" id="reset-filters" type="reset">Reset filters</button>
+        </form>
+        <p class="filter-note">Location and size describe your sampling context; the optical sensor does not measure particle size.</p>
+        <div class="table-scroll"><table><thead><tr><th scope="col">TIME</th><th scope="col">LOCATION</th><th scope="col">VOLTAGE</th><th scope="col">LEVEL</th><th scope="col">CONC. INDEX</th><th scope="col">SIZE CONTEXT</th></tr></thead><tbody id="readings-table"><tr class="empty-row"><td colspan="6">No saved readings match these filters.</td></tr></tbody></table></div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="section-wrap contact-layout"><div><p class="eyebrow">04 / KEEP THE SIGNAL MOVING</p><h2 id="contact-title">Better samples<br>start with <span>better questions.</span></h2></div><div class="contact-copy"><p>Building a field study or adapting the sensor to your workflow? Bring your measurement setup and let’s talk about what the signal can tell you.</p><a class="button button-primary" href="mailto:hello@h2oclearx.org">Contact the project <span aria-hidden="true">↗</span></a></div></div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-wrap"><a class="brand" href="#home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>H2O <b>ClearX</b></span></a><span>OPTICAL WATER MONITORING / 2026</span><a href="#home">Back to top ↑</a></footer>
+
+  <dialog class="login-dialog" id="login-dialog" aria-labelledby="login-title">
+    <div class="dialog-top"><a class="brand" href="#home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>H2O <b>ClearX</b></span></a><button class="icon-button" type="button" data-close-login aria-label="Close login dialog">×</button></div>
+    <p class="eyebrow">MEMBER ACCESS / DEMO</p><h2 id="login-title">Welcome back.</h2><p class="dialog-copy">Front-end demo access. No account is created and credentials are not stored.</p>
+    <form id="login-form"><label>Email address<input id="login-email" type="email" autocomplete="username" required placeholder="you@example.com"></label><label>Password<input type="password" autocomplete="current-password" required minlength="4" placeholder="Enter any 4+ characters"></label><button class="button button-primary dialog-submit" type="submit">Continue <span aria-hidden="true">→</span></button><p class="login-message" id="login-message" role="status" aria-live="polite"></p></form>
+  </dialog>
+  <div class="dialog-backdrop" hidden></div>
+</body>
+</html>
